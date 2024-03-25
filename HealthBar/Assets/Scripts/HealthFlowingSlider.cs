@@ -7,11 +7,9 @@ public class HealthFlowingSlider : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
 
-    private float _decreaseValue = 10;
+    private float _decreaseValue = -10;
     private float _increaseValue = 10;
     private float _value;
-    private bool _isEnabled;
-
     private Slider _slider;
 
     private void Awake()
@@ -28,10 +26,27 @@ public class HealthFlowingSlider : MonoBehaviour
 
     private void Update()
     {
-        if (_isEnabled == false && _slider.value != _value) 
+        StartCoroutine(FlowingChange());
+    }
+
+    private IEnumerator FlowingChange()
+    {
+        if (_slider.value < _value)
         {
-            _isEnabled = true;
-            StartCoroutine(FlowingChange());
+            while (_slider.value < _value)
+            {
+                _slider.value += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        else
+        {
+            while (_slider.value > _value)
+            {
+                _slider.value -= Time.deltaTime;
+                yield return null;
+            }
         }
     }
 
@@ -43,32 +58,25 @@ public class HealthFlowingSlider : MonoBehaviour
         {
             _slider.value = _maxHealth;
         }
+
+        if (_value > _maxHealth)
+        {
+            _value = _maxHealth;
+        }
     }
 
     public void Decrease()
     {
-        _value -= _decreaseValue;
+        _value += _decreaseValue;
 
         if (_slider.value < 0)
         {
             _slider.value = 0;
         }
-    }
 
-    private IEnumerator FlowingChange()
-    {
-        if (_slider.value > _value)
+        if (_value < 0)
         {
-            _slider.value += Time.deltaTime;
-            yield return null;
+            _value = 0;
         }
-
-        else
-        {
-            _slider.value -= Time.deltaTime;
-            yield return null;
-        }
-
-        _isEnabled = false;
     }
 }

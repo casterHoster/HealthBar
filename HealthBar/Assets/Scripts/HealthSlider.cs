@@ -8,7 +8,6 @@ public class HealthSlider : MonoBehaviour
 
     private float _decreaseValue = 10;
     private float _increaseValue = 10;
-
     private Slider _slider;
 
     private void Awake()

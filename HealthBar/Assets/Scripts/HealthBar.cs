@@ -8,7 +8,7 @@ public class HealthBar : MonoBehaviour
 
     private Text _text;
     private float _currentHealth;
-    private float _decreaseValue = 10;
+    private float _decreaseValue = -10;
     private float _increaseValue = 10;
 
     private void Awake()
@@ -39,7 +39,7 @@ public class HealthBar : MonoBehaviour
 
     public void Decrease()
     {
-        _currentHealth -= _decreaseValue;
+        _currentHealth += _decreaseValue;
 
         if (_currentHealth < 0)
         {
