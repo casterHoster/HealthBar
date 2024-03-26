@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthView : MonoBehaviour
+public abstract class HealthView : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
 

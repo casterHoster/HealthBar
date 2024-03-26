@@ -3,8 +3,9 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-   [SerializeField] private float _decreaseValue;
-   [SerializeField] private float _increaseValue;
+    [SerializeField] private float _maxHealth;
+    [SerializeField] private float _decreaseValue;
+    [SerializeField] private float _increaseValue;
 
     public event UnityAction<float> ChangeCount;
 

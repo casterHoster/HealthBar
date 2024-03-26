@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 62536785}
   - component: {fileID: 62536787}
-  - component: {fileID: 62536788}
   m_Layer: 5
   m_Name: Flowing Slider
   m_TagString: Untagged
@@ -213,19 +212,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &62536788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62536784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66ed09aa291be9a42ac0d46dc4b89845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 100
 --- !u!1 &209152559
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,43 +294,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 209152562}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1304411767}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: Increase
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1018440385}
-        m_TargetAssemblyTypeName: HealthSlider, Assembly-CSharp
-        m_MethodName: Increase
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 62536788}
-        m_TargetAssemblyTypeName: HealthFlowingSlider, Assembly-CSharp
-        m_MethodName: Increase
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &209152562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -986,43 +936,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 879891115}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1304411767}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: Decrease
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1018440385}
-        m_TargetAssemblyTypeName: HealthSlider, Assembly-CSharp
-        m_MethodName: Decrease
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 62536788}
-        m_TargetAssemblyTypeName: HealthFlowingSlider, Assembly-CSharp
-        m_MethodName: Decrease
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &879891115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,7 +1077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1018440384}
   - component: {fileID: 1018440386}
-  - component: {fileID: 1018440385}
+  - component: {fileID: 1018440387}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1192,19 +1106,6 @@ RectTransform:
   m_AnchoredPosition: {x: -519, y: 138}
   m_SizeDelta: {x: 160, y: 49.146}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1018440385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018440383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 026a4784faed61a4db948f03f37b8304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 100
 --- !u!114 &1018440386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1256,6 +1157,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1018440387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018440383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267e533722e4fff48a13f42c4901a311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hpSlider: {fileID: 1018440386}
 --- !u!1 &1250279424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1315,7 @@ GameObject:
   - component: {fileID: 1304411766}
   - component: {fileID: 1304411769}
   - component: {fileID: 1304411768}
-  - component: {fileID: 1304411767}
+  - component: {fileID: 1304411770}
   m_Layer: 5
   m_Name: TextHealthbar
   m_TagString: Untagged
@@ -1428,19 +1342,6 @@ RectTransform:
   m_AnchoredPosition: {x: -515, y: 242.8761}
   m_SizeDelta: {x: 133.0723, y: 29.0383}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1304411767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304411765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8c947b6effc5c94a8f90351fab14dcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 100
 --- !u!114 &1304411768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1483,6 +1384,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304411765}
   m_CullTransparentMesh: 1
+--- !u!114 &1304411770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304411765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d7ae0b041721442b0db225474b4f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hpText: {fileID: 1304411768}
 --- !u!1 &1425541400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,6 +1484,7 @@ GameObject:
   - component: {fileID: 1675762802}
   - component: {fileID: 1675762801}
   - component: {fileID: 1675762800}
+  - component: {fileID: 1675762804}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1664,6 +1579,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1675762804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675762799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9e72aa603b0df4ebac6b44f9becd84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _max: 100
+  _views:
+  - {fileID: 1018440387}
+  - {fileID: 1304411770}
+  _decrease: {fileID: 879891114}
+  _increase: {fileID: 209152561}
 --- !u!1 &1945274412
 GameObject:
   m_ObjectHideFlags: 0
