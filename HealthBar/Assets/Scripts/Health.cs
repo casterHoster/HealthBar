@@ -1,21 +1,39 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth;
-    [SerializeField] private float _decreaseValue;
-    [SerializeField] private float _increaseValue;
+    private float _maxValue;
+    private float _currentValue;
 
-    public event UnityAction<float> ChangeCount;
+    public float MaxValue { get => _maxValue; }
+    public float CurrentValue { get => _currentValue; }
 
-    public void Increase()
+    public event UnityAction<float, float> ChangedCount;
+
+    public void IncreaseValue(float value)
     {
-        ChangeCount?.Invoke(_increaseValue);
+        _currentValue += value;
+
+        if (_currentValue > _maxValue)
+        {
+            _currentValue = _maxValue;
+        }
+
+        ChangedCount?.Invoke(_currentValue, _maxValue);
     }
 
-    public void Decrease()
+    public void DecreaseValue(float value)
     {
-        ChangeCount?.Invoke(_decreaseValue);
+        _currentValue -= value;
+
+        if (_currentValue < 0)
+        {
+            _currentValue = 0;
+        }
+
+        ChangedCount?.Invoke(_currentValue, _maxValue);
     }
 }
+

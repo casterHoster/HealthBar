@@ -1,33 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class HealthView : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth;
-
-    private float _currentHealth;
-
-    private void Start()
+    public void Construct(Health health)
     {
-        _currentHealth = _maxHealth;
-
+        health.ChangedCount += DrawHealthValue;
     }
 
-    private void ChangeValue(float value)
-    {
-        _currentHealth += value;
-
-        if (_currentHealth > _maxHealth)
-        {
-            _currentHealth = _maxHealth;
-        }
-
-        if (_currentHealth < 0)
-        {
-            _currentHealth = 0;
-        }
-    }
-
-
+    protected abstract void DrawHealthValue(float currentValue, float maxValue);
 }
