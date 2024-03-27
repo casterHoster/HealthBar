@@ -6,6 +6,7 @@ public class Health
     private float _currentValue;
 
     public float MaxValue { get => _maxValue; }
+
     public float CurrentValue { get => _currentValue; }
 
     public Health(float maxHealth)

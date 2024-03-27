@@ -5,8 +5,11 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class HealthFlowingSlider : HealthView
 {
+    [SerializeField] private float _speed;
+
     private Slider _slider;
     private Coroutine _coroutine;
+    private bool _isStartedHealth = true;
 
     private void Start()
     {
@@ -17,7 +20,7 @@ public class HealthFlowingSlider : HealthView
     {
         while (_slider.value != currentValue)
         {
-            _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime * 10);
+            _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime * _speed);
             yield return null;
         }
     }
@@ -25,16 +28,18 @@ public class HealthFlowingSlider : HealthView
     protected override void DrawHealthValue(float currentValue, float maxValue)
     {
         _slider.maxValue = maxValue;
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
 
-        if (currentValue < maxValue)
+        if (_isStartedHealth)
         {
-        _coroutine = StartCoroutine(FlowCurrentDraw(currentValue));
+            _slider.value = currentValue;
+            _isStartedHealth = false;
         }
-        else
+
+        if (_coroutine != null)
         {
-         _slider.value = maxValue;
+            StopCoroutine(_coroutine);
         }
+
+        _coroutine = StartCoroutine(FlowCurrentDraw(currentValue));          
     }
 }
