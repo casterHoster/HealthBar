@@ -1,14 +1,18 @@
-using System.Runtime.CompilerServices;
-using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour
+public class Health
 {
     private float _maxValue;
     private float _currentValue;
 
     public float MaxValue { get => _maxValue; }
     public float CurrentValue { get => _currentValue; }
+
+    public Health(float maxHealth)
+    {
+        _currentValue = maxHealth;
+        _maxValue = maxHealth;
+    }
 
     public event UnityAction<float, float> ChangedCount;
 

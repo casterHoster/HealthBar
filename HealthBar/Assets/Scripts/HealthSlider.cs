@@ -2,37 +2,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public class HealthSlider : MonoBehaviour
+public class HealthSlider : HealthView
 {
-    //private Slider _slider;
+    private Slider _slider;
 
-    //private void Awake()
-    //{
-    //    _slider = GetComponent<Slider>();
-    //    _slider.maxValue = _maxHealth;
-    //}
+    private void Start()
+    {
+        _slider = GetComponent<Slider>();
+    }
 
-    //private void Start()
-    //{
-    //    _slider.value = _maxHealth;
-    //}
-    //public void Increase()
-    //{
-    //    _slider.value += _increaseValue;
-
-    //    if (_slider.value > _maxHealth)
-    //    {
-    //        _slider.value = _maxHealth;
-    //    }
-    //}
-
-    //public void Decrease()
-    //{
-    //    _slider.value -= _decreaseValue;
-
-    //    if (_slider.value < 0)
-    //    {
-    //        _slider.value = 0;
-    //    }
-    //}
+    protected override void DrawHealthValue(float currentValue, float maxValue)
+    {
+        _slider.value = currentValue;
+        _slider.maxValue = maxValue;
+    }
 }

@@ -3,80 +3,38 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public class HealthFlowingSlider : MonoBehaviour
+public class HealthFlowingSlider : HealthView
 {
-    [SerializeField] private float _maxHealth;
-
-    private float _decreaseValue = -10;
-    private float _increaseValue = 10;
-    private float _value;
     private Slider _slider;
-
-    private void Awake()
-    {
-        _slider = GetComponent<Slider>();
-        _slider.maxValue = _maxHealth;
-    }
+    private Coroutine _coroutine;
 
     private void Start()
     {
-        _value = _maxHealth;
-        _slider.value = _maxHealth;
+        _slider = GetComponent<Slider>();
     }
 
-    private void Update()
+    private IEnumerator FlowCurrentDraw(float currentValue)
     {
-        StartCoroutine(FlowingChange());
-    }
-
-    private IEnumerator FlowingChange()
-    {
-        if (_slider.value < _value)
+        while (_slider.value != currentValue)
         {
-            while (_slider.value < _value)
-            {
-                _slider.value += Time.deltaTime;
-                yield return null;
-            }
+            _slider.value = Mathf.MoveTowards(_slider.value, currentValue, Time.deltaTime * 10);
+            yield return null;
         }
+    }
 
+    protected override void DrawHealthValue(float currentValue, float maxValue)
+    {
+        _slider.maxValue = maxValue;
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+
+        if (currentValue < maxValue)
+        {
+        _coroutine = StartCoroutine(FlowCurrentDraw(currentValue));
+        }
         else
         {
-            while (_slider.value > _value)
-            {
-                _slider.value -= Time.deltaTime;
-                yield return null;
-            }
-        }
-    }
-
-    public void Increase()
-    {
-        _value += _increaseValue;
-
-        if (_slider.value > _maxHealth)
-        {
-            _slider.value = _maxHealth;
-        }
-
-        if (_value > _maxHealth)
-        {
-            _value = _maxHealth;
-        }
-    }
-
-    public void Decrease()
-    {
-        _value += _decreaseValue;
-
-        if (_slider.value < 0)
-        {
-            _slider.value = 0;
-        }
-
-        if (_value < 0)
-        {
-            _value = 0;
+         _slider.value = maxValue;
         }
     }
 }
